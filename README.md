@@ -1,5 +1,5 @@
 <p align=center>
-   <img src=https://raw.githubusercontent.com/lord/img/master/logo-slate.png  width=226 alt=logo>
+   <img src=https://raw.githubusercontent.com/lord/img/master/logo-slate.png width=226 alt=logo>
 </p>
 
 <p align=center>
@@ -15,21 +15,14 @@
 </p>
 
 <p align=center>
-   <em>The example above was created with Slate. Check it out at
-   <a href=https://lord.github.io/slate>lord.github.io/slate</a>.</em>
+   <em>The example above was created with Slate. Check it out at:
+   <a href=https://node-slate.js.org>node-slate.js.org</a></em>
 </p>
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/center-key/node-slate/blob/master/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/node-slate.svg)](https://www.npmjs.com/package/node-slate)
-[![Dependencies](https://david-dm.org/center-key/node-slate/status.svg)](https://david-dm.org/center-key/node-slate)
 [![Vulnerabilities](https://snyk.io/test/github/center-key/node-slate/badge.svg)](https://snyk.io/test/github/center-key/node-slate)
 [![Build](https://travis-ci.org/center-key/node-slate.svg)](https://travis-ci.org/center-key/node-slate)
-
-Fork
-----
-
-This project is a fork of [sdelements/node-slate](https://github.com/sdelements/node-slate) for the purpose of merging pull requests and keeping dependencies current.
-This fork is used by [gulp-node-slate](https://github.com/center-key/gulp-node-slate).
 
 Features
 --------
@@ -48,7 +41,7 @@ Features
 
 * **Let your users update your documentation for you** — By default, your Slate-generated documentation is hosted in a public Github repository. Not only does this mean you get free hosting for your docs with Github Pages, but it also makes it simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to use GitHub, you're also welcome to host your docs elsewhere.
 
-Getting started with Slate is super easy! Simply fork this repository and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](https://lord.github.io/slate).
+Getting started with Slate is super easy! Simply fork this repository and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](https://node-slate.js.org).
 
 Getting Started with Slate
 ------------------------------
@@ -93,3 +86,8 @@ Publish your docs to `origin/gh-pages` branch:
 ```shell
 npm run deploy
 ```
+
+Gulp Task
+---------
+
+Slate API documentation generation is available as Gulp task with the [gulp-node-slate](https://github.com/center-key/gulp-node-slate) plugin.

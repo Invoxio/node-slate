@@ -29,9 +29,9 @@ curl "api_endpoint_here"
 ```
 
 ```javascript
-const kittn = require('kittn');
+import { kittn } from 'kittn';
 
-let api = kittn.authorize('meowmeowmeow');
+const api = kittn.authorize('meowmeowmeow');
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
@@ -42,7 +42,7 @@ Kittn expects for the API key to be included in all API requests to the server i
 
 `Authorization: meowmeowmeow`
 
-<aside class="notice">
+<aside class=notice>
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
@@ -70,30 +70,30 @@ curl "https://example.com/api/kittens"
 ```
 
 ```javascript
-const kittn = require('kittn');
+import { kittn } from 'kittn';
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+const api = kittn.authorize('meowmeowmeow');
+const kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+   {
+      "id":         1,
+      "name":       "Fluffums",
+      "breed":      "calico",
+      "fluffiness": 6,
+      "cuteness":   7
+   },
+   {
+      "id":         2,
+      "name":       "Max",
+      "breed":      "unknown",
+      "fluffiness": 5,
+      "cuteness":   10
+   }
 ]
 ```
 
@@ -110,7 +110,7 @@ Parameter | Default | Description
 include_cats | false | If set to true, the result will also include cats.
 available | true | If set to false, the result will include kittens that have already been adopted.
 
-<aside class="success">
+<aside class=success>
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
@@ -136,27 +136,29 @@ curl "https://example.com/api/kittens/2"
 ```
 
 ```javascript
-const kittn = require('kittn');
+import { kittn } from 'kittn';
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+const api = kittn.authorize('meowmeowmeow');
+const max = api.kittens.get(2);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+   "id":         2,
+   "name":       "Max",
+   "breed":      "unknown",
+   "fluffiness": 5,
+   "cuteness":   10
 }
 ```
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class=warning>
+Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.
+</aside>
 
 ### HTTP Request (with ID)
 

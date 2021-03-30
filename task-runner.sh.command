@@ -17,11 +17,12 @@ setupTools() {
    echo $banner
    echo $(echo $banner | sed s/./=/g)
    pwd
+   test -d .git && git pull --ff-only
    echo
    echo "Node.js:"
    which node || { echo "Need to install Node.js: https://nodejs.org"; exit; }
    node --version
-   npm install
+   npm install --no-fund
    npm update
    npm outdated
    echo
@@ -44,21 +45,23 @@ releaseInstructions() {
    echo "Release progress:"
    echo "   $version (local) --> $pushed (pushed) --> $released (released)"
    echo
-   echo "Next release action:"
+   test "$version" ">" "$released" && mode="NOT released" || mode="RELEASED"
+   echo "Current version is: $mode"
+   echo
    nextActionBump() {
+      echo "When ready to do the next release:"
+      echo
       echo "   === Increment version ==="
       echo "   Edit pacakge.json to bump $version to next version number"
       echo "   $projectHome/package.json"
       }
-   nextActionCommit() {
+   nextActionCommitTagPub() {
+      echo "Verify all tests pass and then finalize the release:"
+      echo
       echo "   === Commit and push ==="
-      echo "   Check in changed source files for $version with the message:"
-      echo "   Next release"
-      }
-   nextActionTag() {
-      echo "   === Release checkin ==="
-      echo "   Check in remaining changed files with the message:"
+      echo "   Check in all changed files with the message:"
       echo "   Release $version"
+      echo
       echo "   === Tag and publish ==="
       echo "   cd $projectHome"
       echo "   git tag --annotate --message 'Release' $version"
@@ -66,8 +69,7 @@ releaseInstructions() {
       echo "   git push origin --tags"
       echo "   npm publish"
       }
-   nextAction() { test "$version" ">" "$released" && nextActionTag || nextActionBump; }
-   test "$version" ">" "$pushed" && test -d dist && nextActionCommit || nextAction
+   test "$version" ">" "$released" && nextActionCommitTagPub || nextActionBump
    echo
    }
 
@@ -81,9 +83,8 @@ runTasks() {
 
 openBrowser() {
    cd $projectHome
-   echo "Open:"
+   echo "Opening:"
    echo "$projectHome/$webPage"
-   echo "(use Chrome or Firefox)"  #macOS Safari encounters: SecurityError (DOM Exception 18)
    echo
    sleep 2
    open $webPage
